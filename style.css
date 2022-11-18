@@ -1,0 +1,230 @@
+* {
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+input, button {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+}
+button, input[type="submit"] {
+	cursor: pointer;
+	background: none;
+}
+input:focus, button:focus {
+	outline: none;
+} 
+
+body {
+	width: 100vw;
+	height: 100vh;
+
+	font-family: "Roboto", sans-serif;
+	background-color: rgba(32, 103, 236, 0.3);
+}
+
+.app {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.app-header {
+	text-align: center;
+	padding: 30px;
+}
+
+.app-body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.app-link {
+	text-decoration: none;
+	color: #02025c;
+}
+
+.battlefield {
+	position: relative;
+}
+
+.battlefield-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: rgba(3, 36, 184, 0.07);
+}
+
+.battlefield-item {
+	position: relative;
+	width: 32px;
+	height: 32px;
+	border: 1px solid rgba(6, 25, 247, 0.3);
+}
+
+.battlefield-item__active {
+	background: rgba(123, 121, 255, 0.2);
+}
+
+.marker {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.battlefield-status {
+	text-align: center;
+	padding: 20px;
+	font-size: 20px;
+}
+
+.marker-row {
+	left: -35px;
+}
+
+.marker-column {
+	top: -35px;
+}
+
+.ship {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: -1px;
+	border: 2px solid #12107e;
+	background: rgba(17, 65, 236, 0.8);
+	width: 32px;
+	height: 32px;
+}
+.ship:hover { 
+	cursor: grabbing;
+}
+.ship:hover::after {
+	position: absolute;
+	content: 'Поворот - ПКМ';
+	width: 120px;
+	height: 10px;
+	font-family: inherit;
+	color: #12107e;
+	top: -25px;
+	left: 30px;
+}
+
+.ship-row-1 {
+}
+
+.ship-row-2 {
+	width: 65px;
+}
+
+.ship-row-3 {
+	width: 98px;
+}
+
+.ship-row-4 {
+	width: 131px;
+}
+
+.ship-column-1 {
+}
+
+.ship-column-2 {
+	height: 65px;
+}
+
+.ship-column-3 {
+	height: 98px;
+}
+
+.ship-column-4 {
+	height: 131px;
+}
+
+.app-actions {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.app-action {
+	background-color: #204cc7;
+	color: lightcyan;
+	border-radius: 10px;
+	border: 2px solid #12107e;
+
+	font-size: 14px;
+	line-height: 1.2;
+
+	width: 210px;
+	padding: 15px;
+	margin-bottom: 10px;
+
+	transition: all 0.2s ease;
+}
+.app-action:hover {
+	background-color: transparent;
+	color: #0b0991;
+}
+.shot {
+	width: 33px;
+	height: 33px;
+	text-align: center;
+	display: flex;
+	position: absolute;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.shot-missed {
+	font-size: 30px;
+	color: #204cc7;
+}
+
+.shot-wounded {
+	background: #fbdede;
+	z-index: 1;
+}
+
+.shot-wounded::after {
+	content: " ";
+	width: calc(33px * 1.3);
+	height: calc(33px * 1.3);
+	border-top: 2px solid rgb(189, 9, 9);
+	position: absolute;
+	z-index: -1;
+	transform: rotate(45deg);
+	top: 9px;
+	left: -20px;
+}
+
+.shot-wounded::before {
+	content: " ";
+	width: calc(33px * 1.3);
+	height: calc(33px * 1.3);
+	border-top: 2px solid rgb(189, 9, 9);
+	position: absolute;
+	z-index: -1;
+	transform: rotate(-45deg);
+	top: 9px;
+	left: 9px;
+}
+
+.shot-killed {
+	margin: -2px;
+	border: 2px solid rgb(189, 9, 9);
+}
+
+.hidden {
+	display: none;
+}
+
